@@ -3,6 +3,8 @@
 int main() {
     setlocale(LC_ALL, "lt_LT.UTF-8");
 
+    cout << "...Teksto analizės programa..." << endl;
+    cout << "Įveskite įvesties failo pavadinimą: ";
     string filename;
     getline(cin, filename);
 
