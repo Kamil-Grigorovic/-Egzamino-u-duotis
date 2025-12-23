@@ -129,6 +129,18 @@ void writeFile_2(const string& outputFile_2) {
     }
 }
 
+// URL adresu isvedimas i faila
+void printURLs(const set<string>& urls, const string& outputFile) {
+    ofstream outputFileStream(outputFile);
+    if (outputFileStream.is_open()) {
+        for (const auto& url : urls) {
+            outputFileStream << url << endl;
+        }
+        outputFileStream.close();
+    }
+}
+
+
 /// Rezultatu isvedimas i terminala
 // Isvedimas i terminala cross - reference lentele
 void printCrossReference() {
