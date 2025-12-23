@@ -52,3 +52,33 @@ void readFromFile(const string& filename) {
     file.close();
 }
 
+/// Rezultatu isvedimas i faila
+// Isvedimas i faila
+void writeFile_1(const string& outputFile_1) {
+    ofstream outputFileStream(outputFile_1);
+    if (outputFileStream.is_open()) {
+        for (const auto& pair : wordCount) {
+            if (pair.second > 1) {
+                outputFileStream << pair.first << " - " << pair.second << endl;
+            }
+        }
+        outputFileStream.close();
+    }
+}
+
+// Cross - reference lenteles isvedimas
+void writeFile_2(const string& outputFile_2) {
+    ofstream outputFileStream(outputFile_2);
+    if (outputFileStream.is_open()) {
+        for (const auto& p : wordLines) {
+            if (wordCount[p.first] > 1) {
+                outputFileStream << p.first << ": ";
+                for (int line : p.second) {
+                    outputFileStream << line << " ";
+                }
+                outputFileStream << endl;
+            }
+        }
+        outputFileStream.close();
+    }
+}
