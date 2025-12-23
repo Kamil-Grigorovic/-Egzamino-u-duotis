@@ -11,3 +11,12 @@ using namespace std;
 extern map<string, int> wordCount;
 extern map<string, set<int>> wordLines;
 extern set<string> urls;
+
+void readFromFile(const string& filename);
+void processLines(const string& line, int lineNumber);
+
+void writeFile_1(const string& outputFile_1);
+void writeFile_2(const string& outputFile_2);
+
+void printResults();
+void printCrossReference();
