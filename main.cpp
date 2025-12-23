@@ -44,4 +44,41 @@ int main() {
             cout << "Failas 'urls.txt' sukurtas." << endl;
         }
     }
+    else {
+        cout << "Rezultatai bus išvesti į terminalą" << endl;
+        cout << "...MENIU..." << endl;
+        cout << "1. Žodžių pasikartojimų skaičius" << endl;
+        cout << "2. Žodžių ir eilučių numerių lentelė" << endl;
+        cout << "3. URL adresai" << endl;
+
+        cout << "Pasirinkite veiksmus (galite pasirinkti vieną arba kelis): 1, 2, 3: ";
+        string actions;
+        getline(cin, actions);
+
+        readFromFile(filename);
+
+        if (actions.find('1') != string::npos) {
+            cout << endl;
+            cout << "----------------------------------------" << endl;
+            cout << "Žodžių pasikartojimų skaičius:" << endl;
+            cout << "----------------------------------------" << endl;
+            printResults();
+        }
+
+        if (actions.find('2') != string::npos) {
+            cout << endl;
+            cout << "----------------------------------------" << endl;
+            cout << "Žodžių ir eilučių numerių lentelė:" << endl;
+            cout << "----------------------------------------" << endl;
+            printCrossReference();
+        }
+
+        if (actions.find('3') != string::npos) {
+            cout << endl;
+            cout << "----------------------------------------" << endl;
+            cout << "Rasti URL adresai:" << endl;
+            cout << "----------------------------------------" << endl;
+            printURLs_terminal(urls);
+        }
+    }
 }
