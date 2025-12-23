@@ -20,6 +20,8 @@ bool isURL(const string& word);
 
 void writeFile_1(const string& outputFile_1);
 void writeFile_2(const string& outputFile_2);
+void printURLs(const set<string>& urls, const string& outputFile);
 
 void printResults();
 void printCrossReference();
+void printURLs_terminal(const set<string>& urls);
