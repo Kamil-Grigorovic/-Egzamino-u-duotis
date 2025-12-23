@@ -52,6 +52,52 @@ void readFromFile(const string& filename) {
     file.close();
 }
 
+
+/// Darbas su URL
+// URL rinkimo funkcija
+void findURLs(const string& line) {
+    stringstream ss(line);
+    string token;
+
+    while (ss >> token) {
+        if (isURL(token)) {
+            urls.insert(token);
+        }
+    }
+}
+
+// URL tikrinimo funkcija
+bool isURL(const string& token) {
+    string s = token;
+
+    // pašalinam skyrybos ženklus nuo galo
+    while (!s.empty() && ispunct((unsigned char)s.back()) && s.back() != '/') {
+        s.pop_back();
+    }
+
+    // http:// arba https://
+    if (s.rfind("http://", 0) == 0 || s.rfind("https://", 0) == 0)
+        return true;
+
+    // www.
+    if (s.rfind("www.", 0) == 0)
+        return true;
+
+    // paprastas domenas: kazkas.lt
+    size_t dot = s.find('.');
+    if (dot != string::npos && dot > 0 && dot < s.size() - 2) {
+        // patikrinam, kad po taško būtų tik raidės
+        for (size_t i = dot + 1; i < s.size(); i++) {
+            if (!isalpha((unsigned char)s[i]))
+                return false;
+        }
+        return true;
+    }
+
+    return false;
+}
+
+
 /// Rezultatu isvedimas i faila
 // Isvedimas i faila
 void writeFile_1(const string& outputFile_1) {
