@@ -163,3 +163,10 @@ void printResults() {
         }
     }
 }
+
+// Isvedimas i terminala URL adresai
+void printURLs_terminal(const set<string>& urls) {
+    for (const auto& url : urls) {
+        cout << url << endl;
+    }
+}
