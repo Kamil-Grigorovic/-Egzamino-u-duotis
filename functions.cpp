@@ -82,3 +82,26 @@ void writeFile_2(const string& outputFile_2) {
         outputFileStream.close();
     }
 }
+
+/// Rezultatu isvedimas i terminala
+// Isvedimas i terminala cross - reference lentele
+void printCrossReference() {
+    for (const auto& p : wordLines) {
+        if (wordCount[p.first] > 1) {
+            cout << p.first << ": ";
+            for (int line : p.second) {
+                cout << line << " ";
+            }
+            cout << endl;
+        }
+    }
+}
+
+// Isvedimas i terminala zodziu pasikartojimu skaicius
+void printResults() {
+    for (const auto& pair : wordCount) {
+        if (pair.second > 1) {
+            cout << pair.first << " - " << pair.second << endl;
+        }
+    }
+}
