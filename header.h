@@ -15,6 +15,9 @@ extern set<string> urls;
 void readFromFile(const string& filename);
 void processLines(const string& line, int lineNumber);
 
+void findURLs(const string& line);
+bool isURL(const string& word);
+
 void writeFile_1(const string& outputFile_1);
 void writeFile_2(const string& outputFile_2);
 
